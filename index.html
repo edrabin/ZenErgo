@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZenErgo Solutions — On-Site Ergonomic Assessments NYC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* HERO */
+    .hero {
+      background: var(--teal-dark);
+      color: #fff;
+      padding: 5rem 3rem 4.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: -80px; right: -80px;
+      width: 420px; height: 420px;
+      border-radius: 50%;
+      background: var(--teal-mid);
+      opacity: 0.35;
+    }
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--amber);
+      font-weight: 500;
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.2rem;
+      line-height: 1.15;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em { font-style: italic; color: var(--teal-pale); }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.75);
+      font-weight: 300;
+      max-width: 440px;
+      margin-bottom: 2rem;
+      line-height: 1.75;
+    }
+    .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+    .hero-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      padding: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-card-header {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+    .hero-card > p {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 1.5rem;
+    }
+    .credential-row {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.75rem 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.7);
+    }
+    .cred-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--teal-light); flex-shrink: 0;
+    }
+
+    /* TRUST BAR */
+    .trust-bar {
+      background: var(--teal-mid);
+      padding: 1.25rem 3rem;
+      display: flex; gap: 3rem; align-items: center; justify-content: center;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 0.03em;
+    }
+    .trust-item strong { color: #fff; }
+
+    /* SERVICES */
+    .services-section { background: #fff; padding: 5rem 3rem; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .service-card {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .service-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(8,80,65,0.1); }
+    .service-header { padding: 2rem 2rem 1.5rem; position: relative; }
+    .service-header.level-1 { background: var(--teal-pale); }
+    .service-header.level-2 { background: var(--teal-dark); }
+    .service-badge {
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 500;
+      padding: 0.3rem 0.75rem;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+    .badge-1 { background: rgba(29,158,117,0.15); color: var(--teal-dark); }
+    .badge-2 { background: rgba(239,159,39,0.2); color: var(--amber); }
+    .service-header h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .service-header.level-1 h3 { color: var(--teal-dark); }
+    .service-header.level-2 h3 { color: #fff; }
+    .service-header p { font-size: 0.9rem; line-height: 1.65; font-weight: 300; }
+    .service-header.level-1 p { color: var(--teal-mid); }
+    .service-header.level-2 p { color: rgba(255,255,255,0.65); }
+    .service-body { padding: 1.75rem 2rem; background: #fff; }
+    .service-includes {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+    .service-features { list-style: none; }
+    .service-features li {
+      display: flex; align-items: flex-start; gap: 0.65rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #F1EFE8;
+      font-size: 0.875rem;
+      color: var(--text-mid);
+      line-height: 1.5;
+    }
+    .service-features li:last-child { border-bottom: none; }
+    .check { color: var(--teal-light); font-size: 0.95rem; margin-top: 1px; flex-shrink: 0; }
+    .service-footer {
+      padding: 1.25rem 2rem;
+      background: #FAF8F4;
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .service-price .amount { font-size: 1.1rem; font-weight: 500; color: var(--teal-dark); }
+    .service-price .note { font-size: 0.78rem; color: var(--text-muted); }
+
+    /* ABOUT STRIP */
+    .about-strip {
+      background: var(--cream);
+      padding: 5rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .about-block {
+      background: var(--teal-dark);
+      border-radius: 12px;
+      padding: 3rem 2.5rem;
+      color: #fff;
+    }
+    .about-stat { margin-bottom: 2rem; }
+    .about-stat .number {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 600;
+      color: var(--amber);
+      line-height: 1;
+    }
+    .about-stat .label { font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-top: 0.25rem; font-weight: 300; }
+    .about-block blockquote {
+      border-left: 3px solid var(--amber);
+      padding-left: 1rem;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.7;
+    }
+    .about-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--text-dark);
+      margin-bottom: 1.25rem;
+    }
+    .about-content p {
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      line-height: 1.8;
+      font-weight: 300;
+      margin-bottom: 1rem;
+    }
+    .about-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+
+    /* PROCESS */
+    .process-section { background: #fff; padding: 5rem 3rem; }
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .process-step { padding: 1.5rem; }
+    .step-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 600;
+      color: var(--border);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .process-step h4 { font-size: 0.95rem; font-weight: 500; margin-bottom: 0.5rem; color: var(--text-dark); }
+    .process-step p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+
+    /* CTA */
+    .cta-section { background: var(--teal-dark); text-align: center; padding: 5rem 3rem; }
+    .cta-section .section-label { color: var(--amber); }
+    .cta-section .section-title { color: #fff; }
+    .cta-section .section-sub { color: rgba(255,255,255,0.6); margin: 0 auto 2.5rem; }
+    .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo" style="display:flex; align-items:center; gap:1rem;"><img src="ZenErgo-wName.png" alt="ZenErgo Solutions" style="height: 200px; width: auto; display: block;"><span style="font-family:'Playfair Display', serif; font-size:1.3rem; color:#fff; letter-spacing:0.02em; white-space:nowrap;">ZenErgo <span style="color:#EF9F27;">Solutions</span></span></a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Services</a></li>
+    <li><a href="about.html">About Dr. Rabin</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="contact.html" class="nav-cta">Book an Assessment</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <div class="hero-eyebrow">On-Site Ergonomic Assessments · New York City</div>
+    <h1>Work Without <em>Pain.</em> Perform Without Limits.</h1>
+    <p class="hero-sub">Expert ergonomic assessments brought directly to your New York City office — backed by 30 years of chiropractic expertise.</p>
+    <div class="hero-actions">
+      <a href="contact.html" class="btn-primary">Book an Assessment</a>
+      <a href="about.html" class="btn-ghost">Meet Dr. Rabin</a>
+    </div>
+  </div>
+  <div class="hero-card">
+    <div class="hero-card-header">Edwin Rabin, DC, CEAS, AOEAS</div>
+    <p>Doctor of Chiropractic · Office Ergonomic Specialist</p>
+    <div class="credential-row"><div class="cred-dot"></div>30 years chiropractic experience</div>
+    <div class="credential-row"><div class="cred-dot"></div>20 years independent reviewer for workers comp cases</div>
+    <div class="credential-row"><div class="cred-dot"></div>On-site office workspace assessments</div>
+    <div class="credential-row"><div class="cred-dot"></div>Detailed written recommendations</div>
+    <div class="credential-row"><div class="cred-dot"></div>All five NYC boroughs served</div>
+  </div>
+</div>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item">✦ <strong>On-site</strong> — we come to your office</div>
+  <div class="trust-item">✦ <strong>Two assessment levels</strong> — tailored to your needs</div>
+  <div class="trust-item">✦ <strong>Comprehensive report</strong> </div>
+  <div class="trust-item">✦ <strong>Corporate offices</strong> — large and small</div>
+</div>
+
+<!-- SERVICES -->
+<section class="services-section">
+  <div class="section-label">What We Offer</div>
+  <div class="section-title">Two Levels of Assessment</div>
+  <p class="section-sub">Whether you're proactively optimizing your workspace or addressing existing discomfort, we have an assessment designed for you.</p>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-header level-1">
+        <div class="service-badge badge-1">Level 1 — Preventive</div>
+        <h3>Workstation Wellness Evaluation</h3>
+        <p>A thorough, proactive review of your workspace for individuals with minimal or no symptoms — ideal for getting ahead of issues before they arise.</p>
+      </div>
+      <div class="service-body">
+        <div class="service-includes">Includes</div>
+        <ul class="service-features">
+          <li><span class="check">✓</span>Full workstation setup review (chair, desk, monitor, peripherals)</li>
+          <li><span class="check">✓</span>Seated posture and position analysis</li>
+          <li><span class="check">✓</span>Lighting and glare assessment</li>
+          <li><span class="check">✓</span>Work habit review</li>
+          <li><span class="check">✓</span>Full evaluation and recommendations report</li>
+          <li><span class="check">✓</span>Equipment suggestions with product guidance</li>
+        </ul>
+      </div>
+      <div class="service-footer">
+        <div class="service-price">
+          <div class="amount">Contact for Pricing</div>
+          <div class="note">Per workstation · Volume rates available</div>
+        </div>
+        <a href="contact.html" class="btn-primary" style="font-size:0.82rem; padding:0.6rem 1.25rem;">Book Now</a>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-header level-2">
+        <div class="service-badge badge-2">Level 2 — Symptomatic</div>
+        <h3>Comprehensive Ergonomic &amp; Symptom Assessment</h3>
+        <p>A deeper evaluation for individuals experiencing repetitive stress injuries, musculoskeletal pain, or persistent discomfort related to their work environment.</p>
+      </div>
+      <div class="service-body">
+        <div class="service-includes">Everything in Level 1, plus</div>
+        <ul class="service-features">
+          <li><span class="check">✓</span>Detailed symptom history &amp; intake review</li>
+          <li><span class="check">✓</span>Functional movement and posture evaluation</li>
+          <li><span class="check">✓</span>RSI and MSD risk factor identification</li>
+          <li><span class="check">✓</span>Task-specific analysis (typing, mousing, phone use)</li>
+          <li><span class="check">✓</span>Comprehensive recommendations report</li>
+          <li><span class="check">✓</span>Follow-up consultation (30 min)</li>
+        </ul>
+      </div>
+      <div class="service-footer">
+        <div class="service-price">
+          <div class="amount">Contact for Pricing</div>
+          <div class="note">Per workstation · Volume rates available</div>
+        </div>
+        <a href="contact.html" class="btn-primary" style="font-size:0.82rem; padding:0.6rem 1.25rem;">Book Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT STRIP -->
+<section class="about-strip">
+  <div class="about-block">
+    <div class="about-stat">
+      <div class="number">30 and 20</div>
+      <div class="label">30 years of chiropractic practice, plus 20 years as an independent medical file reviewer of workers' compensation cases</div>
+    </div>
+    <div class="about-stat">
+      <div class="number">NYC</div>
+      <div class="label">on-site at your office, all five boroughs</div>
+    </div>
+    <blockquote>
+      "Most workplace injuries don't happen in a moment — they develop over months and years of misalignment. The workstation is where it begins."
+    </blockquote>
+  </div>
+  <div class="about-content">
+    <div class="section-label">About</div>
+    <h2>Clinical Expertise, Applied to Your Workspace</h2>
+    <p>After three decades diagnosing and treating musculoskeletal conditions, and more than 20 years as an independent medical file reviewer for workers' compensation cases, Dr. Rabin recognized that many of the same problems kept arising — and most traced directly back to how people sat, typed, and worked each day.</p>
+    <p>ZenErgo Solutions brings that clinical lens directly to your office, helping individuals and organizations build healthier, more sustainable work environments before problems become injuries.</p>
+    <div class="about-tags">
+      <span class="tag">Doctor of Chiropractic</span>
+      <span class="tag">Certified Ergonomic Assessment Specialist</span>
+      <span class="tag">Advanced Office Ergonomic Assessment Specialist</span>
+      <span class="tag">OSHA 10 Certified</span>
+      <span class="tag">NY State Workers Compensation Board Authorized Provider</span>
+    </div>
+    <div style="margin-top:2rem;">
+      <a href="about.html" class="btn-primary">Meet Dr. Rabin</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-section">
+  <div class="section-label">How It Works</div>
+  <div class="section-title">From Booking to Report</div>
+  <div class="process-grid">
+    <div class="process-step">
+      <div class="step-number">01</div>
+      <h4>Schedule</h4>
+      <p>Choose your assessment level and contact us to book. We serve all NYC boroughs and can accommodate businesses of all sizes</p>
+    </div>
+    <div class="process-step">
+      <div class="step-number">02</div>
+      <h4>Email Questionnaire</h4>
+      <p>Each employee receives a pre-evaluation questionnaire by email to detail equipment used, work habits, and any areas of discomfort.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-number">03</div>
+      <h4>On-Site Visit</h4>
+      <p>Dr. Rabin comes to the office and conducts a thorough, in-person evaluation of your employee's workspace and makes equipment adjustments when needed.</p></div>
+    <div class="process-step">
+      <div class="step-number">04</div>
+      <h4>Analysis</h4>
+      <p>Findings are reviewed and synthesized using decades of clinical knowledge to produce meaningful, actionable recommendations.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-number">05</div>
+      <h4>Comprehensive Report</h4>
+      <p>You receive a detailed written report with specific equipment, positioning, and behavioral recommendations you can act on immediately.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="section-label">Get Started</div>
+  <div class="section-title">Ready to Transform Your Workspace?</div>
+  <p class="section-sub">Contact us to schedule an assessment or learn more about corporate and team packages.</p>
+  <div class="cta-actions">
+    <a href="contact.html" class="btn-primary">Book an Assessment</a>
+    <a href="about.html" class="btn-ghost">Learn About Dr. Rabin</a>
+  </div>
+</section>
+
+<footer>
+  <a href="index.html" class="footer-logo" style="display:flex; align-items:center; gap:0.85rem;"><img src="ZenErgo-wName.png" alt="ZenErgo Solutions" style="height: 160px; width: auto; display: block;"><span style="font-family:'Playfair Display', serif; font-size:1.1rem; color:#fff; letter-spacing:0.02em; white-space:nowrap;">ZenErgo <span style="color:#EF9F27;">Solutions</span></span></a>
+  <p>© 2026 ZenErgo Solutions · New York City · All rights reserved</p>
+  <div class="footer-links">
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>
