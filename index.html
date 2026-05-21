@@ -252,12 +252,15 @@
 
 <nav>
   <a href="index.html" class="nav-logo" style="display:flex; align-items:center; gap:1rem;"><img src="ZenErgo-wName.png" alt="ZenErgo Solutions" style="height: 200px; width: auto; display: block;"><span style="font-family:'Playfair Display', serif; font-size:1.3rem; color:#fff; letter-spacing:0.02em; white-space:nowrap;">ZenErgo <span style="color:#EF9F27;">Solutions</span></span></a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="navLinks">
     <li><a href="index.html" class="active">Services</a></li>
     <li><a href="about.html">About Dr. Rabin</a></li>
     <li><a href="contact.html">Contact</a></li>
     <li><a href="contact.html" class="nav-cta">Book an Assessment</a></li>
   </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- HERO -->
@@ -436,5 +439,19 @@
   </div>
 </footer>
 
+<script>
+  const hamburger = document.getElementById('navHamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navLinks.classList.toggle('mobile-open');
+    document.body.style.overflow = navLinks.classList.contains('mobile-open') ? 'hidden' : '';
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    navLinks.classList.remove('mobile-open');
+    document.body.style.overflow = '';
+  }));
+</script>
 </body>
 </html>
