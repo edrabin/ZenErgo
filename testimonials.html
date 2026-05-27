@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Testimonials | ZenErgo Solutions</title>
+  <meta name="description" content="Client testimonials for ZenErgo Solutions — on-site office ergonomic assessments across New York City.">
+  <link rel="canonical" href="https://www.zenergosolutions.com/testimonials.html" />
+  <meta name="robots" content="noindex">
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG3LSNNDYT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-EG3LSNNDYT');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav-inner" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="ZenErgo Solutions home">
+      <img src="ZenErgo-wName.png" alt="ZenErgo Solutions — NYC Corporate Ergonomic Assessments">
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Services</a></li>
+      <li><a href="about.html">About Dr. Rabin</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="contact.html" class="nav-cta-link">Book an Assessment</a></li>
+    </ul>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="container">
+      <div class="page-hero-eyebrow">Client Testimonials</div>
+      <h1>What Our Clients Say</h1>
+    </div>
+  </div>
+
+  <!-- PLACEHOLDER -->
+  <section class="testimonials-placeholder">
+    <div class="container">
+      <div class="testimonials-placeholder-inner">
+        <h2 class="section-title">Testimonials Coming Soon</h2>
+        <p class="placeholder-note">We are currently gathering client testimonials and will be publishing them here shortly. In the meantime, please feel free to <a href="contact.html" style="color: var(--c-accent); text-decoration: underline;">reach out directly</a> to learn more about the ZenErgo Solutions experience.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-logo" aria-label="ZenErgo Solutions home">
+        <img src="ZenErgo-wName.png" alt="ZenErgo Solutions logo">
+      </a>
+      <p>On-site office ergonomic assessments for New York City corporate offices.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="index.html#services">Workstation Wellness Evaluation</a></li>
+        <li><a href="index.html#services">Comprehensive Ergonomic Assessment</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="index.html">Services</a></li>
+        <li><a href="about.html">About Dr. Rabin</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:info@zenergosolutions.com">info@zenergosolutions.com</a></li>
+        <li><a href="tel:+13477880312">(347) 788-0312</a></li>
+        <li><span>All five NYC boroughs</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 ZenErgo Solutions · New York City · All rights reserved</p>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('navHamburger');
+  const navLinks  = document.getElementById('navLinks');
+
+  hamburger.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('mobile-open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    navLinks.classList.remove('mobile-open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }));
+</script>
+</body>
+</html>
