@@ -1363,6 +1363,427 @@ select { cursor: pointer; }
 }
 
 /* ============================================================
+   WHY IT MATTERS — SHARED COMPONENTS
+   ============================================================ */
+
+/* Breadcrumb */
+.breadcrumb {
+  background: var(--c-surface-dark);
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.breadcrumb-inner {
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: var(--sp-xl);
+  font-size: 0.8125rem;
+  color: rgba(255,255,255,0.45);
+}
+
+.breadcrumb-inner a {
+  color: var(--c-brand-bright);
+  text-decoration: none;
+}
+.breadcrumb-inner a:hover { text-decoration: underline; }
+.breadcrumb-inner .bc-sep { margin: 0 var(--sp-xs); }
+
+/* Stat strip (3-column) */
+.stat-strip {
+  background: var(--c-surface-dark);
+  padding: var(--sp-xxl) 0;
+}
+
+.stat-strip-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-md);
+}
+
+.stat-strip-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--r-lg);
+  padding: var(--sp-xl);
+  text-align: center;
+}
+
+.stat-strip-num {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--c-brand-bright);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--sp-xs);
+}
+
+.stat-strip-label {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.75);
+  font-weight: 500;
+  line-height: 1.4;
+  margin-bottom: var(--sp-xxs);
+}
+
+.stat-strip-source {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.35);
+  line-height: 1.4;
+}
+
+/* Callout panel */
+.callout-panel {
+  background: var(--c-brand-light);
+  border: 1px solid var(--c-brand);
+  border-left: 4px solid var(--c-brand);
+  border-radius: var(--r-lg);
+  padding: var(--sp-xl) var(--sp-xxl);
+  margin: var(--sp-xxl) 0;
+}
+
+.callout-panel-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--c-primary);
+  margin-bottom: var(--sp-md);
+  letter-spacing: -0.015em;
+}
+
+.callout-panel p {
+  font-size: 0.9375rem;
+  color: var(--c-body);
+  line-height: 1.8;
+}
+
+/* Content section — white bg */
+.content-section {
+  background: var(--c-canvas);
+  padding: var(--sp-section) 0;
+}
+
+/* Content section — soft bg */
+.content-section-soft {
+  background: var(--c-surface-soft);
+  padding: var(--sp-section) 0;
+}
+
+/* Content section — dark bg */
+.content-section-dark {
+  background: var(--c-surface-dark);
+  padding: var(--sp-section) 0;
+}
+
+/* Prose bullet lists */
+.prose-list {
+  list-style: none;
+  margin-top: var(--sp-lg);
+}
+
+.prose-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-sm);
+  padding: 10px 0;
+  border-bottom: 1px solid var(--c-hairline-soft);
+  font-size: 0.9375rem;
+  color: var(--c-body);
+  line-height: 1.65;
+}
+
+.prose-list li:last-child { border-bottom: none; }
+
+.prose-list .pl-dot {
+  color: var(--c-brand);
+  font-size: 0.75rem;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.prose-list-dark {
+  list-style: none;
+  margin-top: var(--sp-lg);
+}
+
+.prose-list-dark li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-sm);
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  font-size: 0.9375rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.65;
+}
+
+.prose-list-dark li:last-child { border-bottom: none; }
+
+.prose-list-dark .pl-dot {
+  color: var(--c-brand-bright);
+  font-size: 0.75rem;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+/* Intro paragraph used in content sections */
+.section-intro {
+  font-size: 1rem;
+  color: var(--c-body);
+  line-height: 1.8;
+  max-width: 780px;
+  margin-bottom: var(--sp-lg);
+}
+
+/* Sector cards grid (hub page) */
+.sector-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-lg);
+  margin-top: var(--sp-xxl);
+}
+
+.sector-card {
+  background: var(--c-canvas);
+  border: 1px solid var(--c-hairline);
+  border-radius: var(--r-lg);
+  padding: var(--sp-xl);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.22s, transform 0.22s;
+}
+
+.sector-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.sector-card-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--c-ink);
+  margin-bottom: var(--sp-sm);
+  letter-spacing: -0.015em;
+}
+
+.sector-card-desc {
+  font-size: 0.9rem;
+  color: var(--c-muted);
+  line-height: 1.65;
+  flex: 1;
+  margin-bottom: var(--sp-lg);
+}
+
+.sector-card-link {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--c-brand);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.sector-card-link:hover { color: var(--c-primary); text-decoration: underline; }
+
+/* Cost breakdown card */
+.cost-breakdown {
+  background: var(--c-surface-card);
+  border: 1px solid var(--c-hairline);
+  border-radius: var(--r-lg);
+  padding: var(--sp-xl);
+  margin-top: var(--sp-lg);
+}
+
+.cost-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--c-hairline-soft);
+  font-size: 0.9rem;
+  color: var(--c-body);
+  gap: var(--sp-md);
+}
+
+.cost-line:last-child { border-bottom: none; }
+
+.cost-line-label { flex: 1; line-height: 1.5; }
+.cost-line-label.indent { padding-left: var(--sp-lg); color: var(--c-muted); font-size: 0.85rem; }
+
+.cost-line-value {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--c-ink);
+  white-space: nowrap;
+}
+
+.cost-line.total {
+  background: var(--c-primary);
+  border-radius: var(--r-md);
+  padding: var(--sp-md) var(--sp-md);
+  margin-top: var(--sp-sm);
+  border: none;
+}
+
+.cost-line.total .cost-line-label { color: rgba(255,255,255,0.85); font-weight: 600; }
+.cost-line.total .cost-line-value { color: #fff; }
+
+.cost-note {
+  font-size: 0.8rem;
+  color: var(--c-muted);
+  line-height: 1.65;
+  margin-top: var(--sp-md);
+  font-style: italic;
+}
+
+/* Assessment steps (sector pages) */
+.assessment-steps {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-md);
+  margin-top: var(--sp-xl);
+}
+
+.assessment-step {
+  background: var(--c-canvas);
+  border: 1px solid var(--c-hairline);
+  border-radius: var(--r-lg);
+  padding: var(--sp-xl);
+}
+
+.assessment-step-num {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--c-brand-bright);
+  line-height: 1;
+  margin-bottom: var(--sp-sm);
+}
+
+.assessment-step h4 {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--c-ink);
+  margin-bottom: var(--sp-xs);
+}
+
+.assessment-step p {
+  font-size: 0.8125rem;
+  color: var(--c-muted);
+  line-height: 1.65;
+}
+
+/* Assessor block */
+.assessor-block {
+  background: var(--c-surface-card);
+  border: 1px solid var(--c-hairline);
+  border-radius: var(--r-lg);
+  padding: var(--sp-xl) var(--sp-xxl);
+  margin-top: var(--sp-lg);
+}
+
+.assessor-block p {
+  font-size: 0.9375rem;
+  color: var(--c-body);
+  line-height: 1.85;
+  margin-bottom: var(--sp-md);
+}
+
+.assessor-block p:last-child { margin-bottom: 0; }
+
+.assessor-block a {
+  color: var(--c-brand);
+  font-weight: 600;
+}
+
+.assessor-block a:hover { text-decoration: underline; }
+
+/* Billable callout (law page) */
+.billable-callout {
+  background: var(--c-primary);
+  border-radius: var(--r-lg);
+  padding: var(--sp-xxl);
+  color: #fff;
+  margin: var(--sp-xxl) 0;
+}
+
+.billable-callout-title {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: var(--c-brand-bright);
+  margin-bottom: var(--sp-md);
+  letter-spacing: -0.015em;
+}
+
+.billable-callout p {
+  font-size: 0.9375rem;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.8;
+  margin-bottom: var(--sp-md);
+}
+
+.billable-calc {
+  background: rgba(255,255,255,0.07);
+  border-radius: var(--r-md);
+  padding: var(--sp-md) var(--sp-lg);
+  margin-top: var(--sp-md);
+}
+
+.billable-calc-row {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.75);
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.billable-calc-row:last-child { border-bottom: none; }
+.billable-calc-row strong { color: #fff; }
+
+/* Dual panel (insurance page) */
+.dual-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-lg);
+  margin-top: var(--sp-xl);
+}
+
+.dual-panel-card {
+  background: var(--c-canvas);
+  border: 1px solid var(--c-hairline);
+  border-radius: var(--r-lg);
+  padding: var(--sp-xl);
+}
+
+.dual-panel-label {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-brand);
+  margin-bottom: var(--sp-sm);
+}
+
+.dual-panel-card h4 {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--c-ink);
+  margin-bottom: var(--sp-md);
+  letter-spacing: -0.015em;
+}
+
+.dual-panel-card p {
+  font-size: 0.9rem;
+  color: var(--c-body);
+  line-height: 1.75;
+}
+
+/* ============================================================
    RESPONSIVE — MOBILE  (< 768px)
    ============================================================ */
 
@@ -1446,6 +1867,16 @@ select { cursor: pointer; }
   .form-grid { grid-template-columns: 1fr; }
   .form-group.full { grid-column: 1; }
   .reminder-grid { grid-template-columns: 1fr; }
+
+  /* Why It Matters */
+  .stat-strip-grid { grid-template-columns: 1fr; }
+  .sector-cards-grid { grid-template-columns: 1fr; }
+  .assessment-steps { grid-template-columns: 1fr; }
+  .dual-panel { grid-template-columns: 1fr; }
+  .callout-panel { padding: var(--sp-lg); }
+  .billable-callout { padding: var(--sp-lg); }
+  .assessor-block { padding: var(--sp-lg); }
+  .breadcrumb-inner { padding-inline: var(--sp-md); }
 }
 
 /* ============================================================
@@ -1484,4 +1915,7 @@ select { cursor: pointer; }
 
   .site-footer { padding: var(--sp-xxl) var(--sp-lg); }
   .footer-inner { grid-template-columns: 1fr 1fr; gap: var(--sp-xl); }
+
+  /* Why It Matters */
+  .sector-cards-grid { grid-template-columns: 1fr; }
 }
