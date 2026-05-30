@@ -508,7 +508,7 @@ a   { color: inherit; text-decoration: none; }
 .hero-band {
   background:
     linear-gradient(rgba(15, 28, 46, 0.72), rgba(15, 28, 46, 0.72)),
-    url('zenergo/Desktop.jpg') center/cover no-repeat;
+    url('Desktop.jpg') center/cover no-repeat;
   padding: var(--sp-section) 0;
   border-bottom: 1px solid var(--c-hairline-soft);
 }
