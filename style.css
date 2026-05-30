@@ -469,7 +469,9 @@ a   { color: inherit; text-decoration: none; }
    ============================================================ */
 
 .page-hero {
-  background: var(--c-surface-dark);
+  background:
+    linear-gradient(rgba(15, 28, 46, 0.72), rgba(15, 28, 46, 0.72)),
+    url('Desktop.jpg') center/cover no-repeat;
   padding: var(--sp-xxl) 0;
 }
 
