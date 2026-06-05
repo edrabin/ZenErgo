@@ -881,6 +881,27 @@ a   { color: inherit; text-decoration: none; }
   line-height: 1.65;
 }
 
+.report-preview {
+  margin-top: var(--sp-xxl);
+  text-align: center;
+}
+
+.report-preview-img {
+  width: 100%;
+  max-width: 780px;
+  border-radius: 10px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+  display: block;
+  margin: 0 auto;
+}
+
+.report-preview-caption {
+  margin-top: var(--sp-sm);
+  font-size: 0.8125rem;
+  color: var(--c-muted);
+  font-style: italic;
+}
+
 /* ============================================================
    INDEX — CTA BAND
    ============================================================ */
