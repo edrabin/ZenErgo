@@ -881,6 +881,11 @@ a   { color: inherit; text-decoration: none; }
   line-height: 1.65;
 }
 
+.report-preview-section {
+  background: var(--c-canvas);
+  padding: var(--sp-section) 0;
+}
+
 .report-preview {
   margin-top: var(--sp-xxl);
   text-align: center;
