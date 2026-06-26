@@ -2007,3 +2007,136 @@ select { cursor: pointer; }
   /* Why It Matters */
   .sector-cards-grid { grid-template-columns: 1fr; }
 }
+
+/* ============================================================
+   HOMEPAGE — HR / RISK MANAGER UPDATE COMPONENTS
+   ============================================================ */
+
+/* Credentials badge strip (hero credential card) */
+.credentials-badge-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-xs);
+  margin-bottom: var(--sp-md);
+}
+.credentials-badge-strip .badge {
+  display: inline-block;
+  background: var(--c-brand-light);
+  color: var(--c-brand);
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+  line-height: 1.3;
+}
+
+/* Claims-side differentiator callout (hero credential card) */
+.differentiator-callout {
+  margin-top: var(--sp-md);
+  padding-top: var(--sp-md);
+  border-top: 1px solid var(--c-hairline);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--c-primary);
+}
+
+/* Stat bar (homepage data callout strip) */
+.stat-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-md);
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 var(--sp-xl);
+}
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background: var(--c-surface-soft);
+  border: 1px solid var(--c-hairline-soft);
+  border-radius: var(--r-lg);
+  padding: var(--sp-xl);
+}
+.stat-item .stat-number {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 600;
+  color: var(--c-brand);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--sp-xs);
+}
+.stat-item .stat-label {
+  font-size: 0.875rem;
+  color: var(--c-body);
+  font-weight: 500;
+  line-height: 1.4;
+  margin-bottom: var(--sp-xxs);
+}
+.stat-item .stat-source {
+  font-size: 0.7rem;
+  color: var(--c-muted);
+  line-height: 1.4;
+}
+
+/* Service card supporting copy */
+.card-benefit-lede {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--c-body);
+  font-weight: 500;
+  margin-bottom: var(--sp-md);
+}
+.service-card-head.head-dark .card-benefit-lede { color: rgba(255,255,255,0.85); }
+.card-stat {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--c-brand);
+  font-weight: 600;
+  margin-top: var(--sp-md);
+}
+.card-who {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--c-muted);
+  margin-top: var(--sp-xs);
+}
+.card-who strong { color: var(--c-body); }
+
+/* Generic callout box (How It Works, complimentary offer) */
+.callout-box {
+  border-left: 4px solid var(--c-brand);
+  background: var(--c-surface-soft);
+  padding: var(--sp-md) var(--sp-lg);
+  border-radius: var(--r-md);
+  margin: var(--sp-xl) 0 0;
+}
+.callout-box p { font-size: 0.9375rem; line-height: 1.7; color: var(--c-body); }
+.callout-box--offer {
+  border: 2px solid var(--c-brand);
+  border-left: 2px solid var(--c-brand);
+  background: var(--c-brand-light);
+  padding: var(--sp-xl);
+  border-radius: var(--r-lg);
+  margin: var(--sp-xxl) auto;
+  max-width: 760px;
+  text-align: center;
+}
+.callout-box--offer h3 {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: var(--c-primary);
+  margin-bottom: var(--sp-sm);
+}
+.callout-box--offer p { margin-bottom: var(--sp-lg); }
+
+@media (max-width: 768px) {
+  .stat-bar { grid-template-columns: 1fr; }
+}
