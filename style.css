@@ -2065,6 +2065,14 @@ select { cursor: pointer; }
   color: var(--c-primary);
 }
 
+/* Stat bar section — tighter bottom spacing before What We Offer */
+#stat-bar-section {
+  padding-bottom: calc(var(--sp-section) / 2);
+}
+#services {
+  padding-top: calc(var(--sp-section) / 2);
+}
+
 /* Stat bar (homepage data callout strip) */
 .stat-bar {
   display: grid;
