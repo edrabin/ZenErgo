@@ -991,6 +991,15 @@ a   { color: inherit; text-decoration: none; }
 }
 .sidebar-credentials li:last-child { border-bottom: none; }
 
+.profile-link {
+  display: inline-block;
+  margin-top: var(--sp-md);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--c-accent);
+}
+.profile-link:hover { text-decoration: underline; }
+
 .cred-icon {
   color: var(--c-brand);
   flex-shrink: 0;
