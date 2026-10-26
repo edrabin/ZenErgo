@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NYC Office Ergonomic Assessments | On-Site Workplace Evaluations | ZenErgo Solutions</title>
-  <meta name="description" content="On-site office ergonomic assessments for NYC businesses of any size. Chiropractor-led evaluations with documentation your team can actually use — reduce workplace injuries, strengthen your compliance record, and protect a desk-bound workforce. All five NYC boroughs.">
+  <title>NYC Office Ergonomic Assessments | ZenErgo Solutions</title>
+  <meta name="description" content="ZenErgo Solutions is an NYC ergonomic assessment company. On-site, chiropractor-led workstation evaluations with written reports for HR and workers' comp files.">
   <link rel="canonical" href="https://www.zenergosolutions.com/" />
   <meta name="keywords" content="office ergonomic assessment, ergonomic evaluation NYC, on-site ergonomic assessment New York, workplace ergonomics assessment, ergonomic risk assessment, ergonomic consultants NYC, desk assessment, workstation risk assessment, ergonomic workstation assessment, office ergonomics consultant, workplace injury prevention NYC, corporate ergonomics program, office safety assessment, ZenErgo Solutions, Dr. Edwin Rabin">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="ZenErgo-wName.png">
-  <link rel="apple-touch-icon" href="ZenErgo-wName.png">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
@@ -70,9 +71,13 @@
     },
     "founder": {
       "@type": "Person",
-      "name": "Dr. Edwin Rabin, DC",
+      "@id": "https://www.zenergosolutions.com/about.html#edwin-rabin",
+      "name": "Edwin Rabin",
+      "alternateName": "Ed Rabin",
+      "honorificPrefix": "Dr.",
+      "honorificSuffix": "DC, CEAS I, AOEAS",
       "jobTitle": "Chiropractor & Certified Ergonomics Specialist",
-      "honorificSuffix": "DC, CEAS I, AOEAS"
+      "url": "https://www.zenergosolutions.com/about.html"
     },
     "areaServed": [
       {
@@ -151,6 +156,19 @@
   }
   </script>
 
+  <!-- JSON-LD: WebSite (tells Google the site name to show in results) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://www.zenergosolutions.com/#website",
+    "name": "ZenErgo Solutions",
+    "alternateName": "ZenErgo",
+    "url": "https://www.zenergosolutions.com/",
+    "publisher": { "@id": "https://www.zenergosolutions.com/#organization" }
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -161,7 +179,7 @@
 <header class="site-header">
   <nav class="nav-inner" aria-label="Main navigation">
     <a href="/" class="nav-logo" aria-label="ZenErgo Solutions home">
-      <img src="ZenErgo-wName.png" alt="ZenErgo Solutions logo">
+      <img src="logo-160.png" alt="ZenErgo Solutions logo" width="160" height="160">
       <span class="nav-brand-name">ZenErgo Solutions</span>
     </a>
     <ul class="nav-links" id="navLinks">
@@ -331,7 +349,7 @@
   <section class="process-section">
     <div class="container">
       <div class="report-preview">
-        <img src="ErgoIQPro Report Picture.png" alt="Sample ErgoIQ Pro ergonomic assessment report showing executive summary, equipment review, and workspace images" class="report-preview-img">
+        <img src="ErgoIQPro Report Picture.png" width="768" height="768" loading="lazy" alt="Sample ErgoIQ Pro ergonomic assessment report showing executive summary, equipment review, and workspace images" class="report-preview-img">
         <p class="report-preview-caption">A sample ErgoIQ Pro Level II assessment report — what your team receives after every Level II Comprehensive evaluation.</p>
       </div>
     </div>
@@ -475,7 +493,7 @@
   <div class="footer-inner">
     <div class="footer-brand">
       <a href="/" class="footer-logo" aria-label="ZenErgo Solutions home">
-        <img src="ZenErgo-wName.png" alt="ZenErgo Solutions logo">
+        <img src="logo-160.png" alt="ZenErgo Solutions logo" width="160" height="160">
         <span class="footer-brand-name">ZenErgo Solutions</span>
       </a>
       <p>On-site office ergonomic assessments for New York City corporate offices.</p>
@@ -485,12 +503,16 @@
       <ul>
         <li><a href="/#services">Preventive Workstation Assessment</a></li>
         <li><a href="/#services">Comprehensive Ergonomic Assessment</a></li>
+        <li><a href="why-it-matters-law.html">For Law Firms</a></li>
+        <li><a href="why-it-matters-financial.html">For Financial Services</a></li>
+        <li><a href="why-it-matters-insurance.html">For Insurance Companies</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Company</h4>
       <ul>
         <li><a href="/">Services</a></li>
+        <li><a href="why-it-matters.html">Why It Matters</a></li>
         <li><a href="about.html">About Dr. Rabin</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="/ZenErgo%20Brochure%204page.pdf" target="_blank" rel="noopener">Download a PDF Brochure for Your Leadership Team</a></li>
@@ -526,6 +548,14 @@
     navLinks.classList.remove('mobile-open');
     hamburger.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
+  }));
+
+  document.querySelectorAll('a[href^="tel:"], a[href^="mailto:"]').forEach(a => a.addEventListener('click', () => {
+    if (typeof gtag === 'function') {
+      gtag('event', a.href.startsWith('tel:') ? 'click_phone' : 'click_email', {
+        page_path: location.pathname
+      });
+    }
   }));
 </script>
 </body>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found | ZenErgo Solutions</title>
+  <meta name="description" content="The page you were looking for could not be found. ZenErgo Solutions provides on-site office ergonomic assessments across New York City.">
+  <meta name="robots" content="noindex">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG3LSNNDYT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-EG3LSNNDYT');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav-inner" aria-label="Main navigation">
+    <a href="/" class="nav-logo" aria-label="ZenErgo Solutions home">
+      <img src="/logo-160.png" alt="ZenErgo Solutions logo" width="160" height="160">
+      <span class="nav-brand-name">ZenErgo Solutions</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/">Services</a></li>
+      <li><a href="/why-it-matters.html">Why It Matters</a></li>
+      <li><a href="/about.html">About Dr. Rabin</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+      <li><a href="/contact.html" class="nav-cta-link">Let's Talk</a></li>
+    </ul>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="container">
+      <div class="page-hero-eyebrow">Page Not Found</div>
+      <h1>We Couldn't Find That Page</h1>
+      <p class="page-hero-sub">The page may have moved, or the link may be mistyped. Here are the best places to go next.</p>
+    </div>
+  </div>
+
+  <section class="testimonials-placeholder">
+    <div class="container">
+      <div class="testimonials-placeholder-inner">
+        <div class="cta-actions">
+          <a href="/" class="btn-primary">Go to the Homepage</a>
+          <a href="/why-it-matters.html" class="btn-secondary">Why It Matters</a>
+          <a href="/contact.html" class="btn-secondary">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="footer-logo" aria-label="ZenErgo Solutions home">
+        <img src="/logo-160.png" alt="ZenErgo Solutions logo" width="160" height="160">
+        <span class="footer-brand-name">ZenErgo Solutions</span>
+      </a>
+      <p>On-site office ergonomic assessments for New York City corporate offices.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="/#services">Preventive Workstation Assessment</a></li>
+        <li><a href="/#services">Comprehensive Ergonomic Assessment</a></li>
+        <li><a href="/why-it-matters-law.html">For Law Firms</a></li>
+        <li><a href="/why-it-matters-financial.html">For Financial Services</a></li>
+        <li><a href="/why-it-matters-insurance.html">For Insurance Companies</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/">Services</a></li>
+        <li><a href="/why-it-matters.html">Why It Matters</a></li>
+        <li><a href="/about.html">About Dr. Rabin</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="/ZenErgo%20Brochure%204page.pdf" target="_blank" rel="noopener">Download a PDF Brochure for Your Leadership Team</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:info@zenergosolutions.com">info@zenergosolutions.com</a></li>
+        <li><a href="tel:+13477880312">(347) 788-0312</a></li>
+        <li><span>All five NYC boroughs</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 ZenErgo Solutions · New York City · All rights reserved</p>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('navHamburger');
+  const navLinks  = document.getElementById('navLinks');
+
+  hamburger.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('mobile-open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    navLinks.classList.remove('mobile-open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }));
+
+  document.querySelectorAll('a[href^="tel:"], a[href^="mailto:"]').forEach(a => a.addEventListener('click', () => {
+    if (typeof gtag === 'function') {
+      gtag('event', a.href.startsWith('tel:') ? 'click_phone' : 'click_email', {
+        page_path: location.pathname
+      });
+    }
+  }));
+</script>
+</body>
+</html>

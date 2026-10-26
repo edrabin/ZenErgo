@@ -88,6 +88,31 @@ Each page alternates surface modes to avoid visual monotony:
 
 All existing `<title>`, `<meta name="description">`, canonical, Google Analytics, and JSON-LD tags preserved exactly. Google Search Console verification tag preserved on `index.html`. Page filenames unchanged.
 
+**Update (Oct 2026 SEO/performance audit):** Titles were shortened to ≤60 characters and meta descriptions to ≤160 so Google shows them without truncation. Keep new ones within those limits.
+
+---
+
+## Image Assets (Performance)
+
+Keep page weight low. Google uses mobile page speed as a ranking signal, and most visitors are on phones.
+
+| File | Use |
+|---|---|
+| `hero-bg.jpg` (1600×1000, ~150 KB) | Hero/page-hero background on tablet and desktop: the centre band of `Desktop.jpg` |
+| `hero-bg-mobile.jpg` (800×1200, ~110 KB) | Same background on phones (< 768px) |
+| `logo-160.png` | Nav and footer logo (displayed at 72–76px) |
+| `favicon.ico`, `favicon-192.png`, `apple-touch-icon.png` | Browser tab, Google search result, and home-screen icons |
+| `ZenErgo-wName.png` (1080×1080) | Full-size logo, used only for social share images and JSON-LD |
+| `Desktop.jpg` (3840×5760, 3 MB) | Original source photo. **Do not reference it from pages or CSS** |
+
+If the hero photo changes, regenerate both `hero-bg` files from the new source instead of pointing CSS at the original.
+
+---
+
+## 404 Page
+
+`404.html` is served by GitHub Pages for any missing URL, at whatever path was requested. All its links and asset paths are root-absolute (`/style.css`, `/about.html`) so they work from nested paths. It is `noindex`.
+
 ---
 
 ## Testimonials Page

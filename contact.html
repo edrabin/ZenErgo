@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Schedule a Consultation | NYC On-Site Desk Assessments | ZenErgo Solutions</title>
-  <meta name="description" content="Contact ZenErgo Solutions to schedule an on-site desk assessment for your NYC office. HR managers, risk managers, law firm administrators, and office managers — one conversation is all it takes to get started.">
+  <title>Contact ZenErgo Solutions | Book an NYC Ergonomic Assessment</title>
+  <meta name="description" content="Schedule an on-site ergonomic assessment for your NYC office, or ask about a complimentary desk assessment. Call (347) 788-0312 or send us a message.">
   <link rel="canonical" href="https://www.zenergosolutions.com/contact.html" />
   <meta name="keywords" content="book ergonomic assessment NYC, schedule ergonomic evaluation law firm, financial services ergonomics consultation, insurance office workstation assessment, contact ZenErgo Solutions">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="ZenErgo-wName.png">
-  <link rel="apple-touch-icon" href="ZenErgo-wName.png">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
@@ -77,7 +78,7 @@
 <header class="site-header">
   <nav class="nav-inner" aria-label="Main navigation">
     <a href="/" class="nav-logo" aria-label="ZenErgo Solutions home">
-      <img src="ZenErgo-wName.png" alt="ZenErgo Solutions logo">
+      <img src="logo-160.png" alt="ZenErgo Solutions logo" width="160" height="160">
       <span class="nav-brand-name">ZenErgo Solutions</span>
     </a>
     <ul class="nav-links" id="navLinks">
@@ -266,6 +267,7 @@
             <div class="form-submit">
               <button type="submit" class="btn-primary">Submit Request</button>
               <span class="submit-note">AFTER SUBMISSION, you'll return to this form, but don't worry--your info was sent!</span>
+              <p class="form-error" id="formError" role="alert" hidden>Please complete the highlighted fields, including an assessment level, before submitting.</p>
             </div>
           </form>
 
@@ -283,7 +285,7 @@
   <section class="report-preview-section">
     <div class="container">
       <div class="report-preview">
-        <img src="ErgoIQPro Report Picture.png" alt="Sample ErgoIQ Pro ergonomic assessment report showing executive summary, equipment review, and workspace images" class="report-preview-img">
+        <img src="ErgoIQPro Report Picture.png" width="768" height="768" loading="lazy" alt="Sample ErgoIQ Pro ergonomic assessment report showing executive summary, equipment review, and workspace images" class="report-preview-img">
         <p class="report-preview-caption">A sample ErgoIQ Pro Level II assessment report — what your team receives after every Level II Comprehensive evaluation.</p>
       </div>
     </div>
@@ -321,7 +323,7 @@
   <div class="footer-inner">
     <div class="footer-brand">
       <a href="/" class="footer-logo" aria-label="ZenErgo Solutions home">
-        <img src="ZenErgo-wName.png" alt="ZenErgo Solutions logo">
+        <img src="logo-160.png" alt="ZenErgo Solutions logo" width="160" height="160">
         <span class="footer-brand-name">ZenErgo Solutions</span>
       </a>
       <p>On-site office ergonomic assessments for New York City corporate offices.</p>
@@ -331,12 +333,16 @@
       <ul>
         <li><a href="/#services">Preventive Workstation Assessment</a></li>
         <li><a href="/#services">Comprehensive Ergonomic Assessment</a></li>
+        <li><a href="why-it-matters-law.html">For Law Firms</a></li>
+        <li><a href="why-it-matters-financial.html">For Financial Services</a></li>
+        <li><a href="why-it-matters-insurance.html">For Insurance Companies</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Company</h4>
       <ul>
         <li><a href="/">Services</a></li>
+        <li><a href="why-it-matters.html">Why It Matters</a></li>
         <li><a href="about.html">About Dr. Rabin</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="/ZenErgo%20Brochure%204page.pdf" target="_blank" rel="noopener">Download a PDF Brochure for Your Leadership Team</a></li>
@@ -360,14 +366,26 @@
   document.getElementById('contactForm').addEventListener('submit', function(e) {
     const required = this.querySelectorAll('[required]');
     let valid = true;
+    let firstInvalid = null;
     required.forEach(field => {
       if (field.type === 'radio') return;
-      if (!field.value.trim()) { field.style.borderColor = '#ef4444'; valid = false; }
+      if (!field.value.trim() || !field.checkValidity()) {
+        field.style.borderColor = '#ef4444'; valid = false;
+        firstInvalid = firstInvalid || field;
+      }
       else field.style.borderColor = '';
     });
     const radioGroup = this.querySelector('[name="assessmentLevel"]:checked');
-    if (!radioGroup) valid = false;
-    if (!valid) { e.preventDefault(); return; }
+    const radioWrap = this.querySelector('.radio-group');
+    radioWrap.classList.toggle('invalid', !radioGroup);
+    if (!radioGroup) { valid = false; firstInvalid = firstInvalid || radioWrap; }
+    document.getElementById('formError').hidden = valid;
+    if (!valid) {
+      e.preventDefault();
+      firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      firstInvalid.focus({ preventScroll: true });
+      return;
+    }
 
     if (typeof gtag === 'function') {
       gtag('event', 'generate_lead', {
@@ -376,6 +394,10 @@
       });
     }
   });
+
+  document.querySelectorAll('[name="assessmentLevel"]').forEach(r => r.addEventListener('change', () => {
+    document.querySelector('.radio-group').classList.remove('invalid');
+  }));
 
   const hamburger = document.getElementById('navHamburger');
   const navLinks  = document.getElementById('navLinks');
@@ -392,6 +414,14 @@
     navLinks.classList.remove('mobile-open');
     hamburger.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
+  }));
+
+  document.querySelectorAll('a[href^="tel:"], a[href^="mailto:"]').forEach(a => a.addEventListener('click', () => {
+    if (typeof gtag === 'function') {
+      gtag('event', a.href.startsWith('tel:') ? 'click_phone' : 'click_email', {
+        page_path: location.pathname
+      });
+    }
   }));
 </script>
 </body>

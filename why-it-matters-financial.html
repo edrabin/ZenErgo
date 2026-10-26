@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ergonomic Risk &amp; Workers' Comp Costs for NYC Financial Services Firms | ZenErgo Solutions</title>
-  <meta name="description" content="Nearly 68% of bank employees suffer from work-related MSDs. See what that means for HR and risk managers at NYC financial services firms — and what a documented desk assessment does for your WC renewal and compliance record.">
+  <title>Financial Services Ergonomics in NYC | ZenErgo Solutions</title>
+  <meta name="description" content="Nearly 68% of bank employees suffer work-related MSDs. What that means for NYC financial firms, and how a documented desk assessment protects your WC record.">
   <link rel="canonical" href="https://www.zenergosolutions.com/why-it-matters-financial.html">
   <meta name="keywords" content="ergonomic assessment financial services NYC, ergonomic evaluation financial firm New York, workstation assessment trading floor, office ergonomics consultant financial services, bank employee MSD prevention, financial firm administrator ergonomics, workers comp ergonomic assessment NYC">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="ZenErgo-wName.png">
-  <link rel="apple-touch-icon" href="ZenErgo-wName.png">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
@@ -82,7 +83,7 @@
 <header class="site-header">
   <nav class="nav-inner" aria-label="Main navigation">
     <a href="/" class="nav-logo" aria-label="ZenErgo Solutions home">
-      <img src="ZenErgo-wName.png" alt="ZenErgo Solutions logo">
+      <img src="logo-160.png" alt="ZenErgo Solutions logo" width="160" height="160">
       <span class="nav-brand-name">ZenErgo Solutions</span>
     </a>
     <ul class="nav-links" id="navLinks">
@@ -265,7 +266,7 @@
   <div class="footer-inner">
     <div class="footer-brand">
       <a href="/" class="footer-logo" aria-label="ZenErgo Solutions home">
-        <img src="ZenErgo-wName.png" alt="ZenErgo Solutions logo">
+        <img src="logo-160.png" alt="ZenErgo Solutions logo" width="160" height="160">
         <span class="footer-brand-name">ZenErgo Solutions</span>
       </a>
       <p>On-site office ergonomic assessments for New York City corporate offices.</p>
@@ -275,12 +276,16 @@
       <ul>
         <li><a href="/#services">Preventive Workstation Assessment</a></li>
         <li><a href="/#services">Comprehensive Ergonomic Assessment</a></li>
+        <li><a href="why-it-matters-law.html">For Law Firms</a></li>
+        <li><a href="why-it-matters-financial.html">For Financial Services</a></li>
+        <li><a href="why-it-matters-insurance.html">For Insurance Companies</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Company</h4>
       <ul>
         <li><a href="/">Services</a></li>
+        <li><a href="why-it-matters.html">Why It Matters</a></li>
         <li><a href="about.html">About Dr. Rabin</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="/ZenErgo%20Brochure%204page.pdf" target="_blank" rel="noopener">Download a PDF Brochure for Your Leadership Team</a></li>
@@ -316,6 +321,14 @@
     navLinks.classList.remove('mobile-open');
     hamburger.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
+  }));
+
+  document.querySelectorAll('a[href^="tel:"], a[href^="mailto:"]').forEach(a => a.addEventListener('click', () => {
+    if (typeof gtag === 'function') {
+      gtag('event', a.href.startsWith('tel:') ? 'click_phone' : 'click_email', {
+        page_path: location.pathname
+      });
+    }
   }));
 </script>
 </body>
